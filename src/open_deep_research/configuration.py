@@ -210,6 +210,18 @@ class Configuration(BaseModel):
             }
         }
     )
+    # Provider Configuration
+    base_url: Optional[str] = Field(
+        default=None,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "text",
+                "default": "",
+                "description": "Optional OpenAI-compatible base URL (e.g. https://multiroute.ai/openai/v1). When set, all openai:* model calls are routed here."
+            }
+        },
+    )
+
     # MCP server configuration
     mcp_config: Optional[MCPConfig] = Field(
         default=None,
